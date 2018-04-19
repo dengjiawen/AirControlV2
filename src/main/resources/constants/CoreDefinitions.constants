@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CoreConstants>
+    <RefreshRate>35</RefreshRate>
+
+    <TextureCount>
+        <MaterialT>10</MaterialT>
+        <PMaintenanceT>1</PMaintenanceT>
+    </TextureCount>
+
+    <RowCount>42</RowCount>
+    <ColCount>75</ColCount>
+
+    <MaxZoom>3</MaxZoom>
+    <MinZoom>1</MinZoom>
+</CoreConstants>
