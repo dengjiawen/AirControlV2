@@ -18,7 +18,6 @@ public class FrostedPane extends JPanel {
     static BufferedImage canvas_active_image;
 
     static int title_bar_offset = 30;
-    static float general_blur_radius = 10f;
 
     ExecutorService blur_daemon;
     BufferedImage blurred_image;
