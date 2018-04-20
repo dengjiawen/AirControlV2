@@ -7,6 +7,7 @@ import main.java.resources.ImageResource;
 import main.java.speech.SpeechUtils;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Point2D;
 
@@ -28,6 +29,10 @@ public class Window extends JFrame {
 
     private FrostedPane dbrite;
 
+    private FrostedPane coord;
+
+    private JLabel temp;
+
     public Window() {
         super();
 
@@ -45,6 +50,13 @@ public class Window extends JFrame {
         command = new CommandPanel();
 
         dbrite = new FrostedPane(25, getHeight() - 300 - 25, 300, 300, "DBRITE");
+        coord = new FrostedPane(1100, 600, 200, 70, "Coord");
+
+        temp = new JLabel();
+        temp.setForeground(Color.white);
+        temp.setBounds(10, 30, 190, 40);
+
+        coord.add(temp);
 
         addMouseWheelListener(e -> {
 
@@ -122,6 +134,8 @@ public class Window extends JFrame {
 
                 Canvas.calcRelMousePoint();
 
+                temp.setText("X: " + (int)Canvas.rel_mouse_point_x + ", Y: " + (int)Canvas.rel_mouse_point_y);
+
             }
 
             @Override
@@ -167,6 +181,7 @@ public class Window extends JFrame {
 
         add(command);
         add(dbrite);
+        add(coord);
         add(canvas);
 
         setVisible(true);

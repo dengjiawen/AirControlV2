@@ -1,6 +1,7 @@
 package main.java.ui;
 
 import main.java.common.ThreadUtils;
+import main.java.logic.MapUtils;
 import main.java.resources.ImageResource;
 
 import javax.swing.*;
@@ -54,6 +55,38 @@ public class Canvas extends JPanel {
         g2d.transform(transform);
 
         g2d.drawImage(ImageResource.map_YUMA_airport, 0, 0, getWidth(), getHeight(), this);
+
+        g2d.setStroke(new BasicStroke(10f));
+
+        g2d.setColor(Color.red);
+        g2d.draw(MapUtils.rwy3L);
+
+        g2d.setColor(Color.green);
+        g2d.draw(MapUtils.rwy3R);
+
+        g2d.setColor(Color.orange);
+        g2d.draw(MapUtils.rwy26);
+
+        g2d.setColor(Color.blue);
+        g2d.draw(MapUtils.rwy35);
+
+        g2d.setColor(Color.cyan);
+        g2d.draw(MapUtils.taxiE);
+
+        g2d.setColor(Color.magenta);
+        g2d.draw(MapUtils.taxiD);
+
+        g2d.setColor(Color.lightGray);
+        g2d.draw(MapUtils.taxiA);
+
+        g2d.setColor(Color.pink);
+        g2d.draw(MapUtils.taxiA1);
+
+        g2d.setColor(Color.yellow);
+        g2d.draw(MapUtils.taxiA2);
+
+        g2d.setColor(Color.white);
+        g2d.draw(MapUtils.taxiA3);
 
     }
 

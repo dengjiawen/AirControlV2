@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="flac">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/dependencies/flac.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
