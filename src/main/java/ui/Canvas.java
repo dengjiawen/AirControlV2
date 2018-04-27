@@ -84,6 +84,11 @@ public class Canvas extends JPanel {
         g2d.setColor(color);
         points.forEach(p -> {
             g2d.fillOval((int) p.getX(), (int) p.getY(), 10, 10);
+            if (p.intersection != null) {
+                g2d.setColor(Color.RED);
+                g2d.fillOval((int) p.getX(), (int) p.getY(), 20, 20);
+                g2d.setColor(color);
+            }
         });
 
     }

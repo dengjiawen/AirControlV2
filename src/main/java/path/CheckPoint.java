@@ -1,5 +1,6 @@
 package main.java.path;
 
+import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 public class CheckPoint extends Point2D {
@@ -10,11 +11,12 @@ public class CheckPoint extends Point2D {
     CheckPoint next_point;
     CheckPoint prev_point;
 
-    CheckPoint intersection;
+    public CheckPoint intersection;
 
     public float heading;
 
     PathType type;
+    PathAssignment assignment;
 
     public CheckPoint(float x, float y, PathType type) {
         this.x = x;
@@ -23,10 +25,13 @@ public class CheckPoint extends Point2D {
         this.type = type;
     }
 
-    public CheckPoint(Point2D p, PathType type, float heading) {
+    public CheckPoint(Point2D p, PathType type, PathAssignment assignment, float heading) {
         this.type = type;
         setLocation(p);
         this.heading = heading;
+        this.assignment = assignment;
+
+        MapUtils.common_collection.add(this);
     }
 
     public void setNextPoint (CheckPoint p) {
@@ -66,6 +71,38 @@ public class CheckPoint extends Point2D {
     public enum PathType {
 
         RUNWAY, TAXIWAY, PARKING
+
+    }
+
+    public enum PathAssignment {
+
+        rwy26(MapUtils.rwy26), rwy35(MapUtils.rwy35), rwy3L(MapUtils.rwy3L), rwy3R(MapUtils.rwy3R),
+
+        taxiE(MapUtils.taxiE), taxiD(MapUtils.taxiD),
+
+        taxiA(MapUtils.taxiA), taxiA1(MapUtils.taxiA1), taxiA2(MapUtils.taxiA2), taxiA3(MapUtils.taxiA3);
+
+        Line2D runway_reference;
+
+        PathAssignment(Line2D rwy) {
+
+            this.runway_reference = rwy;
+
+        }
+
+        public static PathAssignment getAssignment (Line2D rwy_ref) {
+
+            for (PathAssignment assignment : values()) {
+                if (assignment.runway_reference == rwy_ref) {
+                    return assignment;
+                }
+            }
+
+            return null;
+
+        }
+
+
 
     }
 

@@ -60,20 +60,20 @@ public class PathUtils {
 
         if (p1.getX() < p2.getX()) {
             if (p1.getY() < p2.getY()) {
-                related_acute_angle =  (float)(Math.PI/2 + related_acute_angle);
+                related_acute_angle = (float) (Math.PI / 2 + related_acute_angle);
             } else {
-                related_acute_angle =  (float)(Math.PI/2 + Math.PI - related_acute_angle);
+                related_acute_angle = (float) (Math.PI / 2 + Math.PI - related_acute_angle);
             }
         } else {
             if (p1.getY() < p2.getY()) {
-                related_acute_angle =  (float)(Math.PI/2 - Math.PI - related_acute_angle);
+                related_acute_angle = (float) (Math.PI / 2 - Math.PI - related_acute_angle);
             } else {
-                related_acute_angle =  (float)(Math.PI/2 - Math.PI + related_acute_angle);
+                related_acute_angle = (float) (Math.PI / 2 - Math.PI + related_acute_angle);
             }
         }
 
-        if (!(p1.getX() < p2.getX() && p1.getY() > p2.getY())){
-            related_acute_angle = (float)(related_acute_angle + Math.PI);
+        if (!(p1.getX() < p2.getX() && p1.getY() > p2.getY())) {
+            related_acute_angle = (float) (related_acute_angle + Math.PI);
         }
 
         return related_acute_angle;
@@ -86,7 +86,9 @@ public class PathUtils {
 
         float heading = getAngle(map_path.getP1(), map_path.getP2());
 
-        point_array.add(new CheckPoint(map_path.getP1(), type, heading));
+        CheckPoint.PathAssignment assignment = CheckPoint.PathAssignment.getAssignment(map_path);
+
+        point_array.add(new CheckPoint(map_path.getP1(), type, assignment, heading));
 
         Point2D point_buffer = map_path.getP1();
         int counter = 0;
@@ -97,7 +99,7 @@ public class PathUtils {
 
         while (counter * point_intervals <= target_length) {
 
-            CheckPoint new_point = new CheckPoint(point_buffer, type, heading);
+            CheckPoint new_point = new CheckPoint(point_buffer, type, assignment, heading);
 
             point_array.get(point_array.size() - 1).setNextPoint(new_point);
 
@@ -111,6 +113,22 @@ public class PathUtils {
         point_array.get(point_array.size() - 1).setNextPoint(null);
 
         return point_array;
+
+    }
+
+    public static void findAllIntersectingPoints(ArrayList<CheckPoint> all_points) {
+
+        all_points.forEach(p1 -> {
+
+            all_points.forEach(p2 -> {
+
+                if (getDistance(p1, p2) < point_intervals / 2 && p1.assignment != p2.assignment) {
+                    p1.intersection = p2;
+                }
+
+            });
+
+        });
 
     }
 

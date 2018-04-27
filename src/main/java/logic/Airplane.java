@@ -145,6 +145,12 @@ public class Airplane {
 
     }
 
+    public void lookAhead() {
+
+        
+
+    }
+
     public double getX() {
         return position.getX();
     }

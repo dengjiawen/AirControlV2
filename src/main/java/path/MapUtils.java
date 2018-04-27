@@ -32,7 +32,11 @@ public class MapUtils {
     public static ArrayList<CheckPoint> _taxiA2;
     public static ArrayList<CheckPoint> _taxiA3;
 
+    public static ArrayList<CheckPoint> common_collection;
+
     public static void init() {
+
+        common_collection = new ArrayList<>();
 
         _rwy26 = PathUtils.findPointArray(rwy26, CheckPoint.PathType.RUNWAY);
         _rwy35 = PathUtils.findPointArray(rwy35, CheckPoint.PathType.RUNWAY);
@@ -46,6 +50,8 @@ public class MapUtils {
         _taxiA1 = PathUtils.findPointArray(taxiA1, CheckPoint.PathType.TAXIWAY);
         _taxiA2 = PathUtils.findPointArray(taxiA2, CheckPoint.PathType.TAXIWAY);
         _taxiA3 = PathUtils.findPointArray(taxiA3, CheckPoint.PathType.TAXIWAY);
+
+        PathUtils.findAllIntersectingPoints(common_collection);
 
     }
 
