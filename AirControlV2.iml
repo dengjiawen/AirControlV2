@@ -9,14 +9,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="com.googlecode.soundlibs:jorbis:0.0.17.4" level="project" />
+    <orderEntry type="library" name="org.gagravarr:vorbis-java-core:0.8" level="project" />
+    <orderEntry type="library" name="tinysound" level="project" />
     <orderEntry type="library" name="Maven: com.github.goxr3plus:java-google-speech-api:V2.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.axet:java-flac-encoder:0.3.8" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20150729" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:22.0" level="project" />
     <orderEntry type="library" name="Maven: kuusisto:tinysound:1.1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.googlecode.soundlibs:jorbis:0.0.17.4" level="project" />
-    <orderEntry type="library" name="Maven: com.googlecode.soundlibs:tritonus-share:0.3.7-2" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.soundlibs:tritonus-share:0.3.7-1" level="project" />
+    <orderEntry type="library" name="Maven: org.jcraft:jorbis:0.0.17" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.soundlibs:vorbisspi:1.0.3-1" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.soundlibs:jorbis:0.0.17-2" level="project" />
   </component>
 </module>
