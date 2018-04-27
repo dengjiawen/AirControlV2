@@ -8,9 +8,24 @@ public class ImageResource {
 
     public static BufferedImage map_YUMA_airport;
 
+    public static BufferedImage plane;
+    public static BufferedImage plane_s;
+
+    public static BufferedImage white_nav;
+    public static BufferedImage red_nav;
+    public static BufferedImage green_nav;
+    public static BufferedImage red_nav_intense;
+
     public static void init() {
 
         map_YUMA_airport = loadImage("/map/YUMA_airport_base.jpg");
+        plane = loadImage("/planes/bombardier_global_7000.png");
+        plane_s = loadImage("/planes/bombardier_global_7000_s.png");
+
+        white_nav = loadImage("/luminence/white.png");
+        red_nav = loadImage("/luminence/red.png");
+        green_nav = loadImage("/luminence/green.png");
+        red_nav_intense = loadImage("/luminence/intense_red.png");
 
     }
 

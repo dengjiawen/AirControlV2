@@ -27,7 +27,7 @@ public class Window extends JFrame {
 
     private CommandPanel command;
 
-    private FrostedPane dbrite;
+    private DBrite dbrite;
 
     private FrostedPane coord;
 
@@ -49,7 +49,7 @@ public class Window extends JFrame {
 
         command = new CommandPanel();
 
-        dbrite = new FrostedPane(25, getHeight() - 300 - 25, 300, 300, "DBRITE");
+        dbrite = new DBrite();
         coord = new FrostedPane(1100, 600, 200, 70, "Coord");
 
         temp = new JLabel();
