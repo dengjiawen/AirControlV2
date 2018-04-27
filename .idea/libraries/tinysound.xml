@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="tinysound">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/java/music/tinysound.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
