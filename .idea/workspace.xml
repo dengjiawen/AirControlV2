@@ -6,7 +6,42 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5016186-812a-4a44-802a-5c4ffad9ebbf" name="Default" comment="" />
+    <list default="true" id="c5016186-812a-4a44-802a-5c4ffad9ebbf" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_googlecode_soundlibs_jorbis_0_0_17_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/logic/Airplane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/logic/RefUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/music/MusicUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/path/CheckPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/path/PathUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/DBrite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_soundlibs_jorbis_0_0_17_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_soundlibs_jorbis_0_0_17_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_soundlibs_tritonus_share_0_3_7_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_soundlibs_tritonus_share_0_3_7_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jcraft_jorbis_0_0_17.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/org_gagravarr_vorbis_java_core_0_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/tinysound.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AirControlV2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AirControlV2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LauncherTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LauncherTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MusicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MusicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/MapUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/path/MapUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/ImageResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/ImageResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Canvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Canvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AirControlV2-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/AirControlV2-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/LauncherTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/LauncherTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/MusicTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/MusicTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/logic/MapUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/resources/ImageResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/resources/ImageResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/ui/Canvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/ui/Canvas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/ui/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/ui/Window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/lib/jorbis-0.0.17-2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/lib/jorbis-0.0.17.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/lib/tritonus-share-0.3.7-1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
