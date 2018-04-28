@@ -13,7 +13,7 @@ public class RefUtils {
 
         planes = new ConcurrentHashMap<>();
 
-        planes.put(current_index_planes ++, new Airplane(MapUtils._rwy26.get(0), MapUtils._rwy26.get(0)));
+        planes.put(current_index_planes ++, new Airplane(MapUtils._rwy35.get(0), MapUtils._rwy35.get(0)));
 //        planes.put(current_index_planes ++, new Airplane(MapUtils._rwy35.get(0), MapUtils._rwy35.get(0)));
 //        planes.put(current_index_planes ++, new Airplane(MapUtils._rwy3L.get(0), MapUtils._rwy3L.get(0)));
 //        planes.put(current_index_planes ++, new Airplane(MapUtils._rwy3R.get(0), MapUtils._rwy3R.get(0)));

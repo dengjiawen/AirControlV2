@@ -33,6 +33,7 @@ public class MapUtils {
     public static ArrayList<CheckPoint> _taxiA3;
 
     public static ArrayList<CheckPoint> common_collection;
+    public static ArrayList<Intersection> intersecting_collection;
 
     public static void init() {
 
@@ -51,7 +52,39 @@ public class MapUtils {
         _taxiA2 = PathUtils.findPointArray(taxiA2, CheckPoint.PathType.TAXIWAY);
         _taxiA3 = PathUtils.findPointArray(taxiA3, CheckPoint.PathType.TAXIWAY);
 
-        PathUtils.findAllIntersectingPoints(common_collection);
+        intersecting_collection = new ArrayList<>();
+        PathUtils.findAllIntersectingPoints();
+
+        intersecting_collection.forEach(i -> {
+
+            boolean inline;
+
+            inline = ((int)(PathUtils.getDistance(i.assignment_a.runway_reference.getP1(), i) +
+                    PathUtils.getDistance(i, i.assignment_a.runway_reference.getP2())) ==
+                    (int)PathUtils.getDistance(i.assignment_a.runway_reference.getP1(),
+                            i.assignment_a.runway_reference.getP2()));
+
+            System.out.println(inline);
+
+        });
+
+    }
+
+    static Intersection reference;
+
+    public static Intersection getIntersection(CheckPoint.PathAssignment a, CheckPoint.PathAssignment b) {
+
+        reference = null;
+
+        intersecting_collection.forEach(i -> {
+
+            if (i.isIntersecting(a, b)) {
+                reference = i;
+            }
+
+        });
+
+        return reference;
 
     }
 

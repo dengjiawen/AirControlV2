@@ -73,6 +73,12 @@ public class Canvas extends JPanel {
         g2d.setStroke(new BasicStroke(5f));
         g2d.setColor(Color.red);
 
+        MapUtils.intersecting_collection.forEach(i -> {
+
+            g2d.fillOval((int) i.getX(), (int)i.getY(), 20, 20);
+
+        });
+
         RefUtils.planes.forEach((i, p) -> {
             paintPlane(p, g2d);
         });
@@ -84,11 +90,6 @@ public class Canvas extends JPanel {
         g2d.setColor(color);
         points.forEach(p -> {
             g2d.fillOval((int) p.getX(), (int) p.getY(), 10, 10);
-            if (p.intersection != null) {
-                g2d.setColor(Color.RED);
-                g2d.fillOval((int) p.getX(), (int) p.getY(), 20, 20);
-                g2d.setColor(color);
-            }
         });
 
     }
@@ -96,7 +97,7 @@ public class Canvas extends JPanel {
     protected void paintPlane(Airplane plane, Graphics2D g2d) {
 
         AffineTransform original = g2d.getTransform();
-        g2d.rotate(Math.PI + plane.current_checkpoint.heading, plane.getX(), plane.getY());
+        g2d.rotate(Math.PI + plane.current_heading, plane.getX(), plane.getY());
 
         g2d.drawImage(ImageResource.plane_s,
                 (int)(plane.getX() - 10 - (ImageResource.plane.getWidth() * 0.1)/2),

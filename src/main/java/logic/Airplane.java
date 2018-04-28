@@ -16,6 +16,8 @@ public class Airplane {
     PlaneType type;
 
     public CheckPoint current_checkpoint;
+    public CheckPoint intersection_checkpoint;
+    public CheckPoint intersection_target;
 
     public Timer incremental_update;
 
@@ -26,6 +28,8 @@ public class Airplane {
 
     public boolean nav_on;
     public boolean acl_on;
+
+    public boolean turn_next_intersection = true;
 
     private Timer acl_light_regulator;
     private Timer strobe_regulator;
@@ -43,6 +47,11 @@ public class Airplane {
 
     public float plane_image_scale_factor;
 
+    public float target_heading;
+    public float current_heading;
+
+    public float dist_to_next_intersection;
+
     public Airplane() {
 
         type = PlaneType.BOMBARDIER_G_7000;
@@ -55,6 +64,9 @@ public class Airplane {
         this.position = new Point2D.Double(starting_point.getX(), starting_point.getY());
         this.type = PlaneType.BOMBARDIER_G_7000;
         this.current_checkpoint = check_point;
+
+        this.target_heading = check_point.heading;
+        this.current_heading = check_point.heading;
 
         speed = 0.02f;
 
@@ -141,13 +153,40 @@ public class Airplane {
             recalc = true;
         }
 
+        if (current_heading > target_heading) {
+
+            dist_to_next_intersection = PathUtils.getDistance(position, intersection_target);
+            current_heading -= (current_heading - target_heading) / (((1 / speed) / dist_to_next_intersection) * 1000 / 30);
+
+        } else if (current_heading < target_heading) {
+
+            dist_to_next_intersection = PathUtils.getDistance(position, intersection_target);
+            current_heading += (target_heading - current_heading) / (((1 / speed) / dist_to_next_intersection) * 1000 / 30);
+
+        } else {
+
+            lookAhead();
+
+        }
+
         RenderUtils.invokeRepaint();
 
     }
 
     public void lookAhead() {
 
-        
+        if (!turn_next_intersection) return;
+
+        CheckPoint ahead_checkpoint = current_checkpoint;
+
+        for (int i = 0; i < 3; i ++) {
+            ahead_checkpoint = ahead_checkpoint.getNextPoint();
+        }
+
+        if (ahead_checkpoint.intersection != null) {
+            target_heading = ahead_checkpoint.intersection.heading;
+            intersection_target = ahead_checkpoint.intersection;
+        }
 
     }
 

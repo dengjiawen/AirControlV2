@@ -11,12 +11,9 @@ public class CheckPoint extends Point2D {
     CheckPoint next_point;
     CheckPoint prev_point;
 
-    public CheckPoint intersection;
-
     public float heading;
 
     PathType type;
-    PathAssignment assignment;
 
     public CheckPoint(float x, float y, PathType type) {
         this.x = x;
@@ -25,11 +22,16 @@ public class CheckPoint extends Point2D {
         this.type = type;
     }
 
-    public CheckPoint(Point2D p, PathType type, PathAssignment assignment, float heading) {
+    public CheckPoint(Point2D p) {
+
+        setLocation(p);
+
+    }
+
+    public CheckPoint(Point2D p, PathType type, float heading) {
         this.type = type;
         setLocation(p);
         this.heading = heading;
-        this.assignment = assignment;
 
         MapUtils.common_collection.add(this);
     }

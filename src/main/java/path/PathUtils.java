@@ -1,5 +1,6 @@
 package main.java.path;
 
+import java.awt.*;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -10,8 +11,7 @@ public class PathUtils {
 
     public static float getSlope(Line2D map_path) {
 
-        return
-                (float) ((map_path.getY1() - map_path.getY2()) / (map_path.getX1() - map_path.getX2()));
+        return (float) ((map_path.getY1() - map_path.getY2()) / (map_path.getX1() - map_path.getX2()));
 
     }
 
@@ -86,9 +86,7 @@ public class PathUtils {
 
         float heading = getAngle(map_path.getP1(), map_path.getP2());
 
-        CheckPoint.PathAssignment assignment = CheckPoint.PathAssignment.getAssignment(map_path);
-
-        point_array.add(new CheckPoint(map_path.getP1(), type, assignment, heading));
+        point_array.add(new CheckPoint(map_path.getP1(), type, heading));
 
         Point2D point_buffer = map_path.getP1();
         int counter = 0;
@@ -99,7 +97,7 @@ public class PathUtils {
 
         while (counter * point_intervals <= target_length) {
 
-            CheckPoint new_point = new CheckPoint(point_buffer, type, assignment, heading);
+            CheckPoint new_point = new CheckPoint(point_buffer, type, heading);
 
             point_array.get(point_array.size() - 1).setNextPoint(new_point);
 
@@ -116,19 +114,100 @@ public class PathUtils {
 
     }
 
-    public static void findAllIntersectingPoints(ArrayList<CheckPoint> all_points) {
+    public static Intersection findIntersectionPoint(Line2D l1, Line2D l2) {
 
-        all_points.forEach(p1 -> {
+        Point2D A = l1.getP1();
+        Point2D B = l1.getP2();
 
-            all_points.forEach(p2 -> {
+        Point2D C = l2.getP1();
+        Point2D D = l2.getP2();
 
-                if (getDistance(p1, p2) < point_intervals / 2 && p1.assignment != p2.assignment) {
-                    p1.intersection = p2;
+        // Line AB represented as a1x + b1y = c1
+        double a1 = B.getY() - A.getY();
+        double b1 = A.getX() - B.getX();
+        double c1 = a1 * (A.getX()) + b1 * (A.getY());
+
+        // Line CD represented as a2x + b2y = c2
+        double a2 = D.getY() - C.getY();
+        double b2 = C.getX() - D.getX();
+        double c2 = a2 * (C.getX()) + b2 * (C.getY());
+
+        double determinant = a1 * b2 - a2 * b1;
+
+        if (determinant == 0) {
+            return null;
+        } else {
+            double x = (b2 * c1 - b1 * c2) / determinant;
+            double y = (a1 * c2 - a2 * c1) / determinant;
+
+            if (xIsOnLine(x, l1) && xIsOnLine(x, l2) &&
+                    yIsOnLine(y, l1) && yIsOnLine(y, l2)) {
+                return new Intersection(new Point2D.Double(x, y),
+                        CheckPoint.PathAssignment.getAssignment(l1), CheckPoint.PathAssignment.getAssignment(l2));
+            }
+        }
+
+        return null;
+
+    }
+
+    public static boolean xIsOnLine(double x, Line2D line) {
+
+        if (x >= line.getX1()) {
+
+            return x <= line.getX2();
+
+        } else {
+
+            return x >= line.getX2();
+
+        }
+
+    }
+
+    public static boolean yIsOnLine(double y, Line2D line) {
+
+        if (y >= line.getY1()) {
+
+            return y <= line.getY2();
+
+        } else {
+
+            return y >= line.getY2();
+
+        }
+
+    }
+
+    static boolean exists;
+
+    public static void findAllIntersectingPoints() {
+
+        for (CheckPoint.PathAssignment assignment : CheckPoint.PathAssignment.values()) {
+
+            for (CheckPoint.PathAssignment a : CheckPoint.PathAssignment.values()) {
+
+                Intersection int_point = findIntersectionPoint(assignment.runway_reference, a.runway_reference);
+
+                if (int_point != null) {
+                    exists = false;
+
+                    MapUtils.intersecting_collection.forEach(p -> {
+                        if (int_point.equals(p)) {
+                            exists = true;
+                        }
+                    });
+
+                    if (!exists) {
+
+                        MapUtils.intersecting_collection.add(int_point);
+
+                    }
                 }
 
-            });
+            }
 
-        });
+        }
 
     }
 
